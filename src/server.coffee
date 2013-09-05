@@ -5,9 +5,9 @@ app = express()
 app.use express.bodyParser()
 app.post '/ga/suspend', (req, res) ->
   console.log 'suspending server'
+  res.end 'gothic castle is being suspended'
   child_process.exec 'pm-suspend', (error, stdout, stderr) ->
     console.log stdout
-    res.send 'gothic castle has been suspended'
 
 app.listen 8888
 console.log 'listening on port 8888'
