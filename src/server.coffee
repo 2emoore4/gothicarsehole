@@ -9,5 +9,9 @@ app.post '/ga/suspend', (req, res) ->
   child_process.exec 'pm-suspend', (error, stdout, stderr) ->
     console.log stdout
 
+app.get '/ga/ping', (req, res) ->
+  console.log 'receiving ping'
+  res.end 'pong'
+
 app.listen 8888
 console.log 'listening on port 8888'
